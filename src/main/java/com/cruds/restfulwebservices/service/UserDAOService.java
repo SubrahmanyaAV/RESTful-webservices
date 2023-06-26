@@ -23,12 +23,11 @@ public class UserDAOService {
 	}
 	
 	private static int userCount = 4;
-	static {
-		users.add(new User(1, "Subbu", LocalDate.now().minusYears(30)));
-		users.add(new User(2, "Raghu", LocalDate.now().minusYears(25)));
-		users.add(new User(3, "Arjuna", LocalDate.now().minusYears(20)));
-	}
-
+	/*
+	 * static { users.add(new User(1, "Subbu", LocalDate.now().minusYears(30)));
+	 * users.add(new User(2, "Raghu", LocalDate.now().minusYears(25)));
+	 * users.add(new User(3, "Arjuna", LocalDate.now().minusYears(20))); }
+	 */
 	
 	public List<User> getAll()
 	{
@@ -39,11 +38,19 @@ public class UserDAOService {
 	{
 		//functional programming  				(-> lambda function)
 		Predicate<? super User> predicate = user -> user.getId().equals(Id);
-		return users.stream().filter(predicate).findFirst().get();
+//		return users.stream().filter(predicate).findFirst().get();
+		return users.stream().filter(predicate).findFirst().orElse(null);
+					//value is present itll show or else i'll get a white label error									
 		/*
 		  taking a list converting it to a stream and filtering
 		  based on a predicate
 		 */	
+	}
+	
+	public void deleteById(int Id)
+	{
+		Predicate<? super User> predicate = user -> user.getId().equals(Id);
+		users.removeIf(predicate );
 	}
 	
 	public User save(User user)
