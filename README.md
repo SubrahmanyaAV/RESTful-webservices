@@ -13,4 +13,6 @@ User REST API
 * Retrieve one user -> GET/users/{id}  --> /users/101
 * DELETE user -> DELETE/users/{id}  --> /users/202
 
-can use # API tester(add the extension) or Postman 
+can use API tester(add the extension) or Postman 
+
+Swagger UI --> localhost:8080/swagger-ui.html
