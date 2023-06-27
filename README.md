@@ -1,6 +1,6 @@
 # RESTful-webservices
 
-Request Methods
+* Request Methods
 *GET -> Retrieve details of a resource
 *POST -> Create a new resource
 *PUT -> Update an existing resource
